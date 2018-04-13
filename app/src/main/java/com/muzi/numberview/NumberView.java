@@ -26,7 +26,6 @@ public class NumberView extends ViewGroup implements View.OnClickListener {
     private int number;
     private int width, height;
     private int margin = 30;
-    private int btnSize = 40;
     private int textSize = 20;
     private int textWidth = 50;
     private long startDelay = 200;
@@ -42,7 +41,7 @@ public class NumberView extends ViewGroup implements View.OnClickListener {
     }
 
     private void initView() {
-        LayoutParams params = new LayoutParams(btnSize, btnSize);
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 
         btnSub = new CircleImageView(getContext());
         btnSub.setImageResource(R.drawable.icon_sub);
