@@ -1,7 +1,9 @@
 # 高仿饿了么加减View
 
 ## 效果
+![img](https://github.com/mzyq/NumberView/blob/da2d4b2ffaa63122c39b2f9358ce3405e185004d/img/preview.gif)
 
+[apk下载](https://fir.im/8js6)
 
 ## 分析
 #### 1.初始addView、subView、numView都在父布局的right
