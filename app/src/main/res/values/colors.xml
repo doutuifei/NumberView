@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009AEA</color>
+    <color name="colorPrimaryDark">#009AEA</color>
+    <color name="colorAccent">#009AEA</color>
+    <color name="themeColor">#009AEA</color>
+    <color name="colorPrimaryGray">#95ABBF</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="tabUnSelectColor">#717171</color>
+    <color name="dividerColor">#cfcfcf</color>
+    <color name="defaultTextColor">#0e0e0e</color>
+    <color name="colorDivison">#dedede</color>
+    <color name="transparent">#00000000</color>
+    <color name="colorTextContent">#444444</color>
+    <color name="colorTextAssistant">#777777</color>
+    <color name="priceColor">#f70000</color>
+</resources>
