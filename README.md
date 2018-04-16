@@ -25,6 +25,13 @@
 * Alpha:0->1
 * ScaleX:->0.1->1
 * ScaleY:->0.1->1
+```
+ ObjectAnimator subTranslation = ObjectAnimator.ofFloat(btnSub, "TranslationX", 0, (width - btnSub.getMeasuredWidth()) * -1f);
+        ObjectAnimator subRotation = ObjectAnimator.ofFloat(btnSub, "Rotation", 0, -360);
+        ObjectAnimator subAlpha = ObjectAnimator.ofFloat(btnSub, "Alpha", 0, 1f);
+        ObjectAnimator subScaleX = ObjectAnimator.ofFloat(btnSub, "ScaleX", 0.1f, 1f);
+        ObjectAnimator subScaleY = ObjectAnimator.ofFloat(btnSub, "ScaleY", 0.1f, 1f);
+```
 
 ##### numView
 * TranslationX:right->center
@@ -32,8 +39,58 @@
 * Alpha:0->1
 * ScaleX:->0.1->1
 * ScaleY:->0.1->1
+```
+ ObjectAnimator numberTranslation = ObjectAnimator.ofFloat(textNumber, "TranslationX", 0, (width - textNumber.getMeasuredWidth()) / -2f);
+        ObjectAnimator numberRotation = ObjectAnimator.ofFloat(textNumber, "Rotation", 0, -360);
+        ObjectAnimator numberAlpha = ObjectAnimator.ofFloat(textNumber, "Alpha", 0, 1f);
+        ObjectAnimator numberScaleX = ObjectAnimator.ofFloat(textNumber, "ScaleX", 0.1f, 1f);
+        ObjectAnimator numberScaleY = ObjectAnimator.ofFloat(textNumber, "ScaleY", 0.1f, 1f);
+```
+
+#### 组合
+```
+ AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setInterpolator(new LinearInterpolator());
+        animatorSet.playTogether(numberTranslation, numberRotation, numberAlpha, numberScaleX, numberScaleY,
+                subTranslation, subRotation, subAlpha, subScaleX, subScaleY);
+        animatorSet.setDuration(duration);
+        animatorSet.setStartDelay(startDelay);
+        animatorSet.start();
+```
+
 
 #### 3.结束动画与开始相反
+```
+ btnSub.clearAnimation();
+        ObjectAnimator subTranslation = ObjectAnimator.ofFloat(btnSub, "TranslationX", (width - btnSub.getMeasuredWidth()) * -1f, 0);
+        ObjectAnimator subRotation = ObjectAnimator.ofFloat(btnSub, "Rotation", 360, 0);
+        ObjectAnimator subAlpha = ObjectAnimator.ofFloat(btnSub, "Alpha", 1f, 0);
+        ObjectAnimator subScaleX = ObjectAnimator.ofFloat(btnSub, "ScaleX", 1f, 0.1f);
+        ObjectAnimator subScaleY = ObjectAnimator.ofFloat(btnSub, "ScaleY", 1f, 0.1f);
+
+        textNumber.clearAnimation();
+        ObjectAnimator numberTranslation = ObjectAnimator.ofFloat(textNumber, "TranslationX", (width - textNumber.getMeasuredWidth()) / -2f, 0);
+        ObjectAnimator numberRotation = ObjectAnimator.ofFloat(textNumber, "Rotation", 360, 0);
+        ObjectAnimator numberAlpha = ObjectAnimator.ofFloat(textNumber, "Alpha", 1f, 0);
+        ObjectAnimator numberScaleX = ObjectAnimator.ofFloat(textNumber, "ScaleX", 1f, 0.1f);
+        ObjectAnimator numberScaleY = ObjectAnimator.ofFloat(textNumber, "ScaleY", 1f, 0.1f);
+
+        final AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setInterpolator(new LinearInterpolator());
+        animatorSet.playTogether(numberTranslation, numberRotation, numberAlpha, numberScaleX, numberScaleY,
+                subTranslation, subRotation, subAlpha, subScaleX, subScaleY);
+        animatorSet.setDuration(duration);
+        animatorSet.setStartDelay(startDelay);
+        animatorSet.start();
+        animatorSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                textNumber.setText(String.valueOf(number));
+                animatorSet.removeAllListeners();
+            }
+        });
+```
 
 ## 方法
 * 获取number
