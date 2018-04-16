@@ -1,7 +1,7 @@
 # 高仿饿了么加减View
 
 ## 效果
-![img](https://github.com/mzyq/NumberView/blob/da2d4b2ffaa63122c39b2f9358ce3405e185004d/img/preview.gif)
+![img](https://github.com/mzyq/NumberView/blob/c820e0f5a42b8d15be82d4c0b62bbd339670bb8b/img/preview.gif)
 
 [apk下载](https://fir.im/8js6)
 
@@ -26,7 +26,7 @@
 * ScaleX:->0.1->1
 * ScaleY:->0.1->1
 ```
- ObjectAnimator subTranslation = ObjectAnimator.ofFloat(btnSub, "TranslationX", 0, (width - btnSub.getMeasuredWidth()) * -1f);
+        ObjectAnimator subTranslation = ObjectAnimator.ofFloat(btnSub, "TranslationX", 0, (width - btnSub.getMeasuredWidth()) * -1f);
         ObjectAnimator subRotation = ObjectAnimator.ofFloat(btnSub, "Rotation", 0, -360);
         ObjectAnimator subAlpha = ObjectAnimator.ofFloat(btnSub, "Alpha", 0, 1f);
         ObjectAnimator subScaleX = ObjectAnimator.ofFloat(btnSub, "ScaleX", 0.1f, 1f);
@@ -40,7 +40,7 @@
 * ScaleX:->0.1->1
 * ScaleY:->0.1->1
 ```
- ObjectAnimator numberTranslation = ObjectAnimator.ofFloat(textNumber, "TranslationX", 0, (width - textNumber.getMeasuredWidth()) / -2f);
+        ObjectAnimator numberTranslation = ObjectAnimator.ofFloat(textNumber, "TranslationX", 0, (width - textNumber.getMeasuredWidth()) / -2f);
         ObjectAnimator numberRotation = ObjectAnimator.ofFloat(textNumber, "Rotation", 0, -360);
         ObjectAnimator numberAlpha = ObjectAnimator.ofFloat(textNumber, "Alpha", 0, 1f);
         ObjectAnimator numberScaleX = ObjectAnimator.ofFloat(textNumber, "ScaleX", 0.1f, 1f);
@@ -49,7 +49,7 @@
 
 #### 组合
 ```
- AnimatorSet animatorSet = new AnimatorSet();
+        AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setInterpolator(new LinearInterpolator());
         animatorSet.playTogether(numberTranslation, numberRotation, numberAlpha, numberScaleX, numberScaleY,
                 subTranslation, subRotation, subAlpha, subScaleX, subScaleY);
@@ -60,8 +60,9 @@
 
 
 #### 3.结束动画与开始相反
+动画结束后要改变textview的值并且取消动画监听。
 ```
- btnSub.clearAnimation();
+        btnSub.clearAnimation();
         ObjectAnimator subTranslation = ObjectAnimator.ofFloat(btnSub, "TranslationX", (width - btnSub.getMeasuredWidth()) * -1f, 0);
         ObjectAnimator subRotation = ObjectAnimator.ofFloat(btnSub, "Rotation", 360, 0);
         ObjectAnimator subAlpha = ObjectAnimator.ofFloat(btnSub, "Alpha", 1f, 0);
