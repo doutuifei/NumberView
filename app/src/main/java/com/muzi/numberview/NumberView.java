@@ -28,8 +28,8 @@ public class NumberView extends ViewGroup implements View.OnClickListener {
     private int margin = 30;
     private int textSize = 20;
     private int textWidth = 50;
-    private long startDelay = 200;
-    private long duration = 500;
+    private long startDelay = 100;
+    private long duration = 300;
 
     public NumberView(Context context) {
         super(context);
@@ -147,14 +147,14 @@ public class NumberView extends ViewGroup implements View.OnClickListener {
         ObjectAnimator subRotation = ObjectAnimator.ofFloat(btnSub, "Rotation", 0, -360);
         ObjectAnimator subAlpha = ObjectAnimator.ofFloat(btnSub, "Alpha", 0, 1f);
         ObjectAnimator subScaleX = ObjectAnimator.ofFloat(btnSub, "ScaleX", 0.1f, 1f);
-        ObjectAnimator subScaleY = ObjectAnimator.ofFloat(btnSub, "ScaleX", 0.1f, 1f);
+        ObjectAnimator subScaleY = ObjectAnimator.ofFloat(btnSub, "ScaleY", 0.1f, 1f);
 
         textNumber.clearAnimation();
         ObjectAnimator numberTranslation = ObjectAnimator.ofFloat(textNumber, "TranslationX", 0, (width - textNumber.getMeasuredWidth()) / -2f);
         ObjectAnimator numberRotation = ObjectAnimator.ofFloat(textNumber, "Rotation", 0, -360);
         ObjectAnimator numberAlpha = ObjectAnimator.ofFloat(textNumber, "Alpha", 0, 1f);
         ObjectAnimator numberScaleX = ObjectAnimator.ofFloat(textNumber, "ScaleX", 0.1f, 1f);
-        ObjectAnimator numberScaleY = ObjectAnimator.ofFloat(textNumber, "ScaleX", 0.1f, 1f);
+        ObjectAnimator numberScaleY = ObjectAnimator.ofFloat(textNumber, "ScaleY", 0.1f, 1f);
 
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setInterpolator(new LinearInterpolator());
@@ -179,14 +179,14 @@ public class NumberView extends ViewGroup implements View.OnClickListener {
         ObjectAnimator subRotation = ObjectAnimator.ofFloat(btnSub, "Rotation", 360, 0);
         ObjectAnimator subAlpha = ObjectAnimator.ofFloat(btnSub, "Alpha", 1f, 0);
         ObjectAnimator subScaleX = ObjectAnimator.ofFloat(btnSub, "ScaleX", 1f, 0.1f);
-        ObjectAnimator subScaleY = ObjectAnimator.ofFloat(btnSub, "ScaleX", 1f, 0.1f);
+        ObjectAnimator subScaleY = ObjectAnimator.ofFloat(btnSub, "ScaleY", 1f, 0.1f);
 
         textNumber.clearAnimation();
         ObjectAnimator numberTranslation = ObjectAnimator.ofFloat(textNumber, "TranslationX", (width - textNumber.getMeasuredWidth()) / -2f, 0);
         ObjectAnimator numberRotation = ObjectAnimator.ofFloat(textNumber, "Rotation", 360, 0);
         ObjectAnimator numberAlpha = ObjectAnimator.ofFloat(textNumber, "Alpha", 1f, 0);
         ObjectAnimator numberScaleX = ObjectAnimator.ofFloat(textNumber, "ScaleX", 1f, 0.1f);
-        ObjectAnimator numberScaleY = ObjectAnimator.ofFloat(textNumber, "ScaleX", 1f, 0.1f);
+        ObjectAnimator numberScaleY = ObjectAnimator.ofFloat(textNumber, "ScaleY", 1f, 0.1f);
 
         final AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setInterpolator(new LinearInterpolator());
